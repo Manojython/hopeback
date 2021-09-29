@@ -1,0 +1,91 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+<style type="text/css">
+	.toi{
+		font-size: 2em;
+		font-weight: 900;
+	}
+	.issue{
+		font-size: 1.58em;
+		font-weight: 500;
+	}
+	.toi_inp{
+
+	}
+	.margin-bottom-5{
+		margin-bottom: 5px !important;
+	}
+	.col-sm-4 {
+    float: left;
+    width: 50%;
+    padding: 15px;
+}
+</style>
+<div class="otherposts has-text-left col-sm-4" style="border-right: 1px solid;">
+	{% for i in posts %}
+
+		<h2 class="toi">{{i[1]}}</h2>
+		<p class="issue" style="font-style: italic;">{{i[2]}}</p>
+		<div  style="padding: 25px;">
+
+			{% for j in comments %}
+
+			{% if j[2] == i[0] %}
+				<p style="font-weight: 500;text-decoration: underline;font-size: 1.75em;">
+					{{j[1]}}
+				</p>
+				
+				<p class="issue">
+					{{j[0]}}
+				</p>
+				<br>
+			{% endif %}				
+			
+			{% endfor %}
+		</div>
+		{% if current_user.is_authenticated %}
+		<div class="margin-bottom-5">
+			<form action="/postcomment" method="POST">
+				<textarea name="comment" placeholder="Comment here" class="textarea margin-bottom-5">
+					
+				</textarea>
+				<input type="submit" class="button" value="Comment" class="margin-bottom-5">
+				<input type="text" name="postID" value="{{i[0]}}" style="visibility: hidden;opacity: 0">
+			</form>
+			{% with messages = get_flashed_messages() %}
+			   {% if messages %}
+			      {% for message in messages %}
+			        <div style="color: red;"> {{ message }}</div>
+			      {% endfor %}
+			   {% endif %}
+			{% endwith %}
+		</div>
+		{% endif %}
+	{% endfor %}
+</div>
+
+<br>
+
+<div class="col-sm-4">
+{% if current_user.is_authenticated %}
+  <h1 class="title">Hi {{ current_user.name }}!</h1>
+<div class="has-text-left">
+	<h2 class="title">Enter the query</h2>
+	<form action="/storepost" method="POST">
+		<input style="margin-bottom: 15px" type="text" name="heading" placeholder="Enter your topic of Interest" class="toi_inp input">
+		
+		<textarea name="query" class="query_inp textarea">
+			
+		</textarea>
+		<input type="submit" class="button">
+	</form>
+</div>
+
+{% endif %}
+</div>
+
+{% endblock %}
+

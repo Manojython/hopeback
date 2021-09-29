@@ -1,0 +1,32 @@
+<!-- templates/profile.html -->
+
+{% extends "base.html" %}
+
+{% block content %}
+<style type="text/css">
+	.toi{
+		font-size: 1.35em;
+		font-weight: 900;
+	}
+	.issue{
+		font-size: 1em;
+		font-weight: 500;
+	}
+	.margin-bottom-5{
+		margin-bottom: 5px !important;
+	}
+
+</style>
+<h1 class="title">
+  Welcome, {{ name }}!
+</h1>
+<p class="toi">Your posts:</p>
+
+{% for i in user_posts %}
+<div class="toi margin-bottom-5">
+	<h2 class="toi ">{{i[0]}}- 
+	<p class="issue">{{i[1]}}</p></h2> 
+	
+</div>
+{% endfor %}
+{% endblock %}
