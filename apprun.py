@@ -172,11 +172,20 @@ def postComment():
 		result = db.engine.execute("INSERT into comments(comments,userid,username,postid) VALUES('"+str(comment)+"','"+str(userID)+"','"+username+"','"+post_id+"')")
 		# db.session.commit()
 	else:
+		with open('negative_comments.txt', 'a') as fd:
+			fd.write(f'\n{str(comment)}')
 		flash('The comment is inappropriate and would affect the morale of the Individual and positivity of the Forum')
 	return redirect(url_for('main.discuss'))
 
+#####################################################
+
+
+@main.route("/flowchart")
+def flowchart():
+	return render_template("flowchart.html")
 
 app.register_blueprint(main)
+
 
 
 

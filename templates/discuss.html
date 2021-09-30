@@ -25,6 +25,11 @@
 }
 </style>
 <div class="otherposts has-text-left col-sm-4" style="border-right: 1px solid;">
+	{% if not current_user.is_authenticated %}
+
+		<a href="{{ url_for('auth.login') }}" class="button">You must Sign In for Commenting!</a>
+
+	{% endif %}
 	{% for i in posts %}
 
 		<h2 class="toi">{{i[1]}}</h2>
@@ -63,6 +68,7 @@
 			   {% endif %}
 			{% endwith %}
 		</div>
+
 		{% endif %}
 	{% endfor %}
 </div>
@@ -83,8 +89,10 @@
 		<input type="submit" class="button">
 	</form>
 </div>
-
+{% else %}
+<a href="{{ url_for('auth.login') }}" class="button">You must Sign In for Posting!</a>
 {% endif %}
+
 </div>
 
 {% endblock %}
