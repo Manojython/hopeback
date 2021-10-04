@@ -11,12 +11,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
 </head>
 <style>
-    .hero.is-primary {
-        background-color: #d5c4d2 !important;
-    }
+ 	*{
+ 		background-image: url("..{{url_for('static',filename='hope_bg.jpg')}}") !important;
+ 	}
+ 	.navbar-end a {
+	    background: black !important;
+	}
     .textarea:not([rows]) {
         min-height: 70px !important;
     }
+    .content p{
+    	background-image: none !important;
+	  background: rgb(0, 0, 0) !important; /* Fallback color */
+	  background: rgba(0, 0, 0, 0.5) !important; /* Black background with 0.5 opacity */
+	  color: #f1f1f1;
+	  width: 100%;
+	  padding: 20px;
+	  font-size: 2em;
+	}
     
 </style>
 <body>
@@ -60,9 +72,14 @@
         </div>
 
         <div class="hero-body">
-            <div class="container has-text-centered">
-               {% block content %}
-               {% endblock %}
+            <div class="container has-text-centered content">
+               <p>
+               	Small things which we never paid attention to during our everyday, seem to have taken a priority now. With all the events that are going around, something that always keeps us, humans pushing forward is <i style="background: none !important;">Hope</i>.
+               	<br>
+				This project focuses on delivering the same back to people, by creating a social network for the sole purpose of generating a positive environment and delivering the Hope back to the society.<br>
+				One might ask what is different here from other social media. This application focuses only on expressing one’s concern <strong style="background: none !important;">anonymously</strong> and anyone who sees the post can go online and comment with a few good words that fill them with <i style="background: none !important;">Hope!</i>
+
+               </p>
             </div>
         </div>
     </section>

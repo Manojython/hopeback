@@ -22,11 +22,14 @@
 </h1>
 <p class="toi">Your posts:</p>
 
+<div >
+
 {% for i in user_posts %}
-<div class="toi margin-bottom-5">
-	<h2 class="toi ">{{i[0]}}- 
+<div class="toi margin-bottom-5" style="text-align: left !important;">
+	 <h2 class="toi ">{{loop.index}}. {{i[0]}}- 
 	<p class="issue">{{i[1]}}</p></h2> 
 	
+</div>
 </div>
 {% endfor %}
 {% endblock %}

@@ -126,7 +126,8 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def index():
 	# print(current_user.name)
-	return redirect(url_for('main.discuss'))
+	# return redirect(url_for('main.discuss'))
+	return render_template('home.html')
 
 @main.route('/profile')
 @login_required
