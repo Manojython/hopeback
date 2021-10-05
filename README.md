@@ -1,4 +1,4 @@
-# hopeback
+# Hopeback
 Different parts of the world are currently affected by the COVID-19. People have lost many things in this war against COVID-19, it could be their friends, families, businesses etc.
 
 Small things which we never paid attention to during our everyday, seem to have taken a priority now. With all the events that are going around, something that always keeps us i.e., humans pushing forward is *Hope*.
