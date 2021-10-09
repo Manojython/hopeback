@@ -23,7 +23,7 @@ db = SQLAlchemy()
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '9OLWxND4o83j4K4iuopO'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://sql5440104:hCstjdZk4x@54.84.79.252/sql5440104'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://********:*********@54.84.79.252/**********'
 
 db.init_app(app)
 
